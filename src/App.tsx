@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./components/AuthProvider";
+import AuthForm from "./components/AuthForm";
+import Dashboard from "./components/Dashboard";
+import Header from "./includes/Header";
 
-function App() {
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthProvider>
+        <Header/>
+        <Routes>
+          <Route
+            path="/"
+            element={<AuthForm isLogin={true}/>}
+          />
+          <Route
+            path="/login"
+            element={<AuthForm isLogin={true}/>}
+          />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/register"
+            element={<AuthForm isLogin={false}/>}
+          />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
-}
+};
 
 export default App;

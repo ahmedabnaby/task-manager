@@ -1,0 +1,527 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*,*:before,*:after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body, input, button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #53a8ee32;
+  height: 100vh;
+}
+
+$primary: #53a7ee;
+$secondary: #9e9e9e;
+
+input, select {
+  color: gray;
+  margin: 0 5px;
+  border: none;
+  padding: 5px;
+  outline: none;
+  background: none;
+  border-bottom: solid 2px lightgray;
+  &:focus {
+    color: $primary;
+    border-bottom-color: $primary;
+  }
+}
+select {
+  color: $primary;
+}
+
+button {
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  background: $primary;
+}
+
+#app {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  background: white;
+  box-shadow: 0 0 20px 1px $secondary;
+  flex-direction: column;
+}
+
+header {
+  margin-top: 45px;
+  height: 200px;
+  display: flex;
+  position: relative;
+  background: url('../public/Designer.jpeg')no-repeat 0 29%;
+  background-size: cover;
+  > * {
+    flex: 1;
+  }
+  border-radius: 35px;
+
+}
+
+.leftCol{
+  padding: 15px;
+}
+
+.task-completion {
+  color: lighten($secondary, 20%);
+  right: 20px;
+  bottom: 12px;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.rightImg{
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 25px;
+  padding-right: 0;
+  border-radius: 35px;
+}
+.date {
+  padding: 0 0 10px 10px;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  background: linear-gradient(0deg, rgba(0, 0, 60, 0.6), rgba(0, 0, 0, 0.3));
+  p {
+    color: white;
+    height: 100%;
+    display: flex;
+    font-size: 40px;
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    span {
+      color: lighten($secondary, 20%);
+      font-size: 13px;
+      font-weight: initial;
+    }
+  }
+}
+
+.type-of-tasks {
+  display: flex;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  background: linear-gradient(0deg, rgba(0, 0, 60, .6), rgba(0,0,0,.3));
+  padding-right: 10px;
+  justify-content: flex-end;
+  p {
+    color: white;
+    display: flex;
+    font-size: 40px;
+    align-self: center;
+    align-items: flex-end;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-direction: column;
+    span {
+      color: lighten($secondary, 20%);
+      font-size: 13px;
+    }
+  }
+}
+
+/*
+SEARCH FIELD
+*/
+#search-field {
+  padding: 10px 10px;
+  // border: solid 1px red;
+  display: inline-block;
+  margin-right: auto;
+  position: relative;
+  .fa-search {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0,-50%) rotate(90deg);
+    color: lighten($secondary, 10%);
+  }
+  input {
+    color: $primary;
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: lightgray;
+  font-style: italic
+}
+
+/*
+TASKS
+*/
+ul {
+  padding: 0 10px;
+  list-style: none;
+  overflow-y: scroll;
+  li {
+    padding: 10px 0 10px 15px;
+    border-bottom: solid 1px lightgray;
+    &:last-child {
+      border-bottom: none;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      p {
+        margin: 0 auto 0 0;
+        display: flex;
+        font-size: 19px;
+        flex-direction: column;
+        span {
+          color: $secondary;
+          font-size: 13px;
+          margin-top: 2px;
+        }
+      }
+      button {
+        color: $primary;
+        margin: 0 10px;
+        background: none;
+      }
+    }
+  }
+}
+
+
+/*
+ADD TASK FORM
+*/
+#add-task-form {
+  height: auto; /* Change height to auto to allow the form to expand */
+  padding: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column; /* Align form items in a column */
+  background-color: #f9f9f9; /* Add a background color for visibility */
+  border: 1px solid #ccc; /* Add a border for visibility */
+}
+
+#add-task-form h2 {
+  margin-bottom: 10px;
+}
+
+#add-task-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-task-form input,
+#add-task-form textarea,
+#add-task-form button {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+#add-task-form button {
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#add-task-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Add styles for input focus */
+#add-task-form input:focus,
+#add-task-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Optional: Add styles for form labels */
+#add-task-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#edit-task-form {
+  padding: 0 8px 0 0;
+  display: flex;
+  input {
+    flex: 1;
+  }
+  button {
+    color: white;
+  }
+}
+
+
+ul li button:hover:not(.delete-btn) {
+  color: darken($primary, 18%);
+}
+
+/*
+CLASSES
+*/
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+.disable-btn {
+  color: gray;
+  cursor: not-allowed;
+  opacity: .2;
+}
+
+// Variables
+$primary-color: #ff4931;
+$secondary-color: #e0b722;
+
+.body {
+  background: $primary-color;
+  transition: all 0.5s;
+  padding: 1px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.veen {
+  width: 70%;
+  margin: 100px auto;
+  background: rgba(255, 255, 255, 0.5);
+  min-height: 400px;
+  display: table;
+  position: relative;
+  top: -75px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+  }
+
+  button {
+    background: transparent;
+    background-image: linear-gradient(90deg, $secondary-color, $primary-color);
+    display: inline-block;
+    padding: 10px 30px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    background-clip: padding-box;
+    position: relative;
+    color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    transition: all 0.25s;
+
+    &.dark {
+      border-color: $primary-color;
+      background: $primary-color;
+    }
+  }
+
+  .move button.dark {
+    border-color: $secondary-color;
+    background: $secondary-color;
+  }
+
+  .splits p {
+    font-size: 18px;
+  }
+
+  button:active {
+    box-shadow: none;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  > .wrapper {
+    position: absolute;
+    width: 40%;
+    height: 120%;
+    top: -10%;
+    left: 5%;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #303030;
+    overflow: hidden;
+
+    > form {
+      padding: 15px 30px 30px;
+      width: 100%;
+      transition: all 0.5s;
+      background: #fff;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    #login {
+      padding-top: 10%;
+      visibility: visible;
+    }
+
+    #register {
+      transform: translateY(-80%) translateX(100%);
+      visibility: hidden;
+    }
+
+    &.move #register {
+      transform: translateY(0) translateX(0%);
+      visibility: visible;
+    }
+
+    &.move #login {
+      transform: translateX(-100%);
+      visibility: hidden;
+    }
+
+    > form > div {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    label {
+      position: absolute;
+      top: -7px;
+      font-size: 12px;
+      white-space: nowrap;
+      background: #fff;
+      text-align: left;
+      left: 15px;
+      padding: 0 5px;
+      color: #999;
+      pointer-events: none;
+    }
+
+    h3 {
+      margin-bottom: 25px;
+    }
+
+    input {
+      height: 40px;
+      padding: 5px 15px;
+      width: 100%;
+      border: solid 1px #999;
+      border-radius: 8px;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+
+    &.move {
+      left: 45%;
+
+      input:focus {
+        border-color: $secondary-color;
+      }
+    }
+  }
+}
+input{
+  border-bottom: solid 2px $primary;
+  margin-bottom: 5px;
+}
+input::-webkit-input-placeholder{
+  color: #0056b3 !important;
+}
+.modal-content{
+  padding: 25px;
+}
+#add-task-form input[type="date"] {
+  padding: 25px 10px;
+  margin: 0px;
+} 
+ @media (max-width: 767px) {
+  .veen {
+    margin-top: -10% !important;
+    padding: 5px;
+    margin: 15px;
+    width: 100%;
+    display: block;
+
+    > .wrapper {
+      position: relative;
+      height: auto;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    > div {
+      display: inline-block;
+    }
+
+    .splits {
+      width: 50%;
+      background: #fff;
+      float: left;
+
+      button {
+        width: 100%;
+        border-radius: 0;
+        background: #505050;
+        border: 0;
+        opacity: 0.7;
+
+        &.active {
+          opacity: 1;
+          background: $primary-color;
+        }
+      }
+
+      &.rgstr-btn button.active {
+        background: $secondary-color;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    > .wrapper.move {
+      left: 0%;
+
+      input:focus {
+        border-color: $secondary-color;
+      }
+    }
+  }
+  .rightImg{
+    padding: 10px;
+  }
+  #add-task-form{
+    margin-bottom: 5px;
+  }
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: inset 0 0 0 50px #fff;
+}
