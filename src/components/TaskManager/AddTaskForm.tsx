@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Task } from '../Dashboard';
 
+
 export type AddTaskFormProps = {
     addTask: (task: Task) => void;
 };

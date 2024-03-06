@@ -191,12 +191,12 @@ ul {
       button {
         color: $primary;
         margin: 0 10px;
+        margin-left: 0;
         background: none;
       }
     }
   }
 }
-
 
 /*
 ADD TASK FORM
@@ -457,6 +457,18 @@ input::-webkit-input-placeholder{
   padding: 25px 10px;
   margin: 0px;
 } 
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust as needed */
+}
+.center-button button{
+  width: 50%;
+}
+.center-button button:hover{
+  background-color: #007bff;
+}
  @media (max-width: 767px) {
   .veen {
     margin-top: -10% !important;
@@ -513,7 +525,7 @@ input::-webkit-input-placeholder{
     }
   }
   .rightImg{
-    padding: 10px;
+    padding: 0px;
   }
   #add-task-form{
     margin-bottom: 5px;

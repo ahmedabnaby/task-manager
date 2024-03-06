@@ -66,7 +66,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, deleteTask, saveEditTask, com
       ) : (
         <>
           <h3>{task.title}</h3>
-          <p>{task.description}</p>
+          <div dangerouslySetInnerHTML={{ __html: task.description }} />
           <p>Due Date: {task.dueDate}</p>
           <div className="task-actions">
             <button onClick={handleOpenModal}>Edit</button>

@@ -180,9 +180,11 @@ const Dashboard: React.FC = () => {
                 />
               ))}
             </ul>
-            <Button variant="primary" onClick={() => setShowModal(true)}>
-              Add Task
-            </Button>
+            <div className="center-button">
+              <button onClick={() => setShowModal(true)} style={{ padding: '10px', borderRadius:'12px' }}>
+                Add Task
+              </button>
+            </div>
           </div>
         </Col>
         <Col md={6}>
